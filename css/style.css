@@ -1,4 +1,13 @@
-/* Css reset */
+/*  Root */
+
+:root {
+    --aquagreen: rgb(0, 150, 135);
+    --bg-gray: rgb(219, 219, 211);
+    --light-gray: rgb(235, 235, 235);
+}
+
+
+/*! Css reset */
 
 * {
     margin: 0;
@@ -9,7 +18,21 @@
 /* Generics */
 
 body {
-    font-family: Montserrat, 'Helvetica Neue', sans-serif;
+    font-family: Lato, 'Helvetica Neue', sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(var(--aquagreen) 0%,
+            var(--aquagreen) 15%,
+            var(--bg-gray) 15%,
+            var(--bg-gray) 100%);
+}
+
+#menu *,
+#chat-window * {
+    width: 100%;
 }
 
 /* Utilities */
@@ -17,4 +40,102 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 30px 0;
+}
+
+/*? Flex */
+.d-flex {
+    display: flex;
+}
+
+/*? Cols */
+
+.col-35 {
+    flex-basis: 35%;
+    border: 1px dotted red;
+}
+
+.col-65 {
+    flex-basis: 65%;
+    border: 1px dotted white;
+}
+
+/* # ----- MAIN ----- */
+
+/** UI */
+
+#UI {
+    border: 1px solid black;
+}
+
+.row {
+    height: 40rem;
+    flex-wrap: nowrap;
+}
+
+/**  Menu */
+
+
+/* @ menu-header */
+
+#menu-header {
+    height: 50px;
+    width: 100%;
+    background-color: var(--light-gray);
+}
+
+/* @ menu-banner */
+
+#menu-banner {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(141, 217, 252);
+}
+
+/* @ menu-searchbar */
+
+#menu-searchbar {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+}
+
+/* @ menu-contact-list */
+
+#menu-contactlist {
+    width: 100%;
+    background-color: white;
+    height: calc(100% - 150px);
+    overflow-y: scroll;
+}
+
+
+/**  Chatwindow */
+
+#chat-window {
+    position: relative;
+}
+
+
+/* @ chat-header */
+#chat-header {
+    height: 50px;
+    background-color: var(--light-gray);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* @ chat-main */
+#chat-main {
+    height: calc(100% - 100px);
+    background-image: url(/img/mine.png);
+    overflow-y: scroll;
+    position: relative;
+}
+
+/*@ chat-footer */
+#chat-footer {
+    height: 50px;
+    background-color: var(--light-gray);
 }
