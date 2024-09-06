@@ -25,9 +25,10 @@
 </head>
 
 <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <!--  MAIN -->
-    <main>
+    <main id="app">
 
         <div class="container">
             <!--#  UI  -->
@@ -80,12 +81,12 @@
 
                     <!--@ menu-contact-list -->
                     <section id="menu-contactlist">
-                        <div id="chat-card" class="d-flex align-center">
+                        <div id="chat-card" class="d-flex align-center" v-for="contact in contacts">
                             <div class="chat-profile-pic">
-                                <img src="img/avatar_1.png" alt="avatar_1">
+                                <img :src="contact.avatar" alt=" avatar_1">
                             </div>
                             <div class="chat-tab-info">
-                                <p id="name">Michele</p>
+                                <p id="name">{{ contact.name }}</p>
                             </div>
 
                         </div>

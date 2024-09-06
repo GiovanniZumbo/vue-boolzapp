@@ -68,21 +68,16 @@ img {
 
 .col-35 {
     flex-basis: 35%;
-    border: 1px dotted red;
 }
 
 .col-65 {
     flex-basis: 65%;
-    border: 1px dotted white;
 }
 
 /* # ----- MAIN ----- */
 
 /** UI */
 
-#UI {
-    border: 1px solid black;
-}
 
 .row {
     height: 40rem;
