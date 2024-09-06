@@ -239,7 +239,40 @@ img {
     background-image: url(/img/mine.png);
     overflow-y: scroll;
     position: relative;
+    padding: 3rem;
+
+    flex-direction: column;
 }
+
+.msg-sent {
+    background-color: rgb(214, 250, 187);
+    width: 300px;
+    min-height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    align-self: flex-end;
+}
+
+.msg-received {
+    background-color: white;
+    width: 300px;
+    min-height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.msg {
+    text-align: start;
+}
+
+.date {
+    font-size: 10px;
+    color: gray;
+    text-align-last: right;
+}
+
 
 /*@ chat-footer */
 #chat-footer {
