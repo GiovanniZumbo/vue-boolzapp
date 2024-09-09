@@ -82,7 +82,7 @@
                     <!--@ menu-contact-list -->
                     <section id="menu-contactlist">
                         <div id="chat-card" class="d-flex align-center" v-for="(contact,i) in contacts"
-                            @click="toggleDisplay(i)">
+                            @click="goToChat(i)">
                             <div class="chat-profile-pic">
                                 <img :src="contact.avatar" alt=" avatar_1">
                             </div>
@@ -130,8 +130,7 @@
                     <!--@ chat-main -->
                     <div id="chat-main">
 
-                        <div class="chat-group d-flex " v-for="(contact, activeIndex) in contacts"
-                            v-show="contacts[activeIndex].visible === true">
+                        <div class="chat-group d-flex " v-for="(contact, i) in contacts" v-show="i === activeIndex">
                             <div class="chat-msg" v-for="(message,j) in contact.messages"
                                 :class=" contact.messages[j].status ">
                                 <p class="msg">{{message.message}}</p>
