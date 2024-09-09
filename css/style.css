@@ -186,6 +186,11 @@ img {
     background: white;
 }
 
+#chat-card:hover {
+    cursor: pointer;
+    background-color: var(--light-gray-1);
+}
+
 .chat-profile-pic {
     height: 40px;
     width: 40px;
@@ -236,10 +241,14 @@ img {
     position: relative;
     padding: 3rem;
 
-    flex-direction: column;
 }
 
-.msg-sent {
+.chat-group {
+    flex-direction: column;
+    border: 1px solid green;
+}
+
+.sent {
     background-color: rgb(214, 250, 187);
     width: 300px;
     min-height: 50px;
@@ -249,7 +258,17 @@ img {
     align-self: flex-end;
 }
 
-.msg-received {
+#chat-main .chat-msg .hidden {
+    display: none;
+}
+
+
+
+.chat-msg .show {
+    display: inline;
+}
+
+.received {
     background-color: white;
     width: 300px;
     min-height: 50px;
