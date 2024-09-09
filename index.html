@@ -81,7 +81,8 @@
 
                     <!--@ menu-contact-list -->
                     <section id="menu-contactlist">
-                        <div id="chat-card" class="d-flex align-center" v-for="contact in contacts" @click="">
+                        <div id="chat-card" class="d-flex align-center" v-for="(contact,i) in contacts"
+                            @click="toggleDisplay(i)">
                             <div class="chat-profile-pic">
                                 <img :src="contact.avatar" alt=" avatar_1">
                             </div>
@@ -105,10 +106,10 @@
                         <div id=" chat-header-left" class="d-flex align-center">
 
                             <div class="chat-profile-pic">
-                                <img src="img/avatar_1.png" alt="avatar_1">
+                                <img :src="contacts[activeIndex].avatar" alt="avatar_1">
                             </div>
                             <div class="chat-tab-info">
-                                <p class="name">Michele</p>
+                                <p class="name">{{contacts[activeIndex].name}}</p>
                                 <p id="last-seen">Ultimo accesso oggi alle</p>
 
                             </div>
@@ -129,14 +130,14 @@
                     <!--@ chat-main -->
                     <div id="chat-main">
 
-                        <div class="chat-group d-flex show" v-for="(contact, i) in contacts">
+                        <div class="chat-group d-flex " v-for="(contact, activeIndex) in contacts"
+                            v-show="contacts[activeIndex].visible === true">
                             <div class="chat-msg" v-for="(message,j) in contact.messages"
                                 :class=" contact.messages[j].status ">
                                 <p class="msg">{{message.message}}</p>
                                 <p class="date">{{message.date}}</p>
                             </div>
                         </div>
-
 
                     </div>
 
