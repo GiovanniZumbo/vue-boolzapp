@@ -4,6 +4,7 @@ createApp({
     data() {
         return {
             activeIndex: 0,
+            newMessage: ' ',
 
             contacts: [
                 {
@@ -170,10 +171,29 @@ createApp({
 
     methods: {
 
+        // metodo per cambiare l'indice attivo
         goToChat(i) {
             this.activeIndex = i;
             console.log(this.activeIndex);
-        }
+        },
+
+        // metodo per pulire l'input text
+        clearInput() {
+            this.newMessage = "";
+        },
+
+        //metodo per inviare un nuovo messaggio 
+        sendNewMessage(newMessage, i) {
+            this.contacts[i].messages.push(
+                {
+                    date: '10/01/2020 15:30:55',
+                    message: newMessage,
+                    status: 'sent'
+                })
+            this.clearInput();
+        },
+
+
 
     },
 }).mount('#app')

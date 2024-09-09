@@ -245,7 +245,6 @@ img {
 
 .chat-group {
     flex-direction: column;
-    border: 1px solid green;
 }
 
 .sent {
