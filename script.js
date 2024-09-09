@@ -5,6 +5,7 @@ createApp({
         return {
             activeIndex: 0,
             newMessage: ' ',
+            autoReplyTimer: ' ',
 
             contacts: [
                 {
@@ -191,9 +192,20 @@ createApp({
                     status: 'sent'
                 })
             this.clearInput();
+            this.autoReply(i);
         },
 
-
+        // metodo per creare una risposta automatizzata
+        autoReply(i) {
+            setTimeout(() => {
+                this.contacts[i].messages.push(
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Ok',
+                        status: 'received'
+                    })
+            }, 1000)
+        },
 
     },
 }).mount('#app')
