@@ -6,6 +6,8 @@ createApp({
             activeIndex: 0,
             newMessage: ' ',
             autoReplyTimer: ' ',
+            searchText: '',
+            filteredContactsList: [],
 
             contacts: [
                 {
@@ -168,6 +170,8 @@ createApp({
 
     computed: {
 
+
+
     },
 
     methods: {
@@ -183,7 +187,7 @@ createApp({
             this.newMessage = "";
         },
 
-        //metodo per inviare un nuovo messaggio 
+        // metodo per inviare un nuovo messaggio 
         sendNewMessage(newMessage, i) {
             this.contacts[i].messages.push(
                 {
@@ -205,6 +209,14 @@ createApp({
                         status: 'received'
                     })
             }, 1000)
+        },
+
+        filteredContacts() {
+            console.log(filteredContactsList)
+            return this.filteredContactsList = this.contacts.filter((contact) => {
+                contact.name.includes(this.searchText);
+
+            })
         },
 
     },

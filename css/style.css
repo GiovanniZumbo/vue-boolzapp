@@ -154,7 +154,7 @@ img {
     height: 40px;
     width: 100%;
     background-color: var(--light-gray-2);
-    padding: 5px;
+    padding: 10px 5px;
 }
 
 #search-field {
@@ -167,8 +167,10 @@ img {
     margin: 5px 10px;
 }
 
-#search-field span {
+#search-field input {
     font-size: 14px;
+    width: 75%;
+    border: none;
 }
 
 /* @ menu-contact-list */
