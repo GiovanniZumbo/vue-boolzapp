@@ -15,6 +15,8 @@ createApp({
             //Array di utenti nella lista di ricerca
             searchList: '',
 
+            optionMenu: false,
+
             // Dati utenti
             contacts: [
                 {
@@ -182,7 +184,7 @@ createApp({
             return this.contacts.filter((contact) => {
                 return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
             });
-        }
+        },
 
     },
 
@@ -224,6 +226,11 @@ createApp({
                     })
             }, 1000)
         },
+
+        showMenu() {
+            this.optionMenu = !this.optionMenu;
+        },
     },
+
 
 }).mount('#app')

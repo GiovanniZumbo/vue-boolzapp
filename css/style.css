@@ -272,20 +272,58 @@ img {
 
 
 /* select menu*/
+
 #msg-menu {
     display: none;
     border: none;
     flex-basis: 10%;
     background-color: transparent;
     text-align: end;
+
+    position: relative;
 }
 
 #msg-menu i {
     cursor: pointer;
 }
 
+#msg-menu button {
+    border: none;
+    background-color: transparent;
+}
+
 .chat-msg:hover #msg-menu {
     display: inline-block;
+}
+
+.received #options {
+    position: absolute;
+    width: 10rem;
+    text-align: left;
+}
+
+.sent #options {
+    position: absolute;
+    width: 10rem;
+    text-align: left;
+    top: 30px;
+    right: 10px;
+}
+
+#options ul {
+    list-style-type: none;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#options li {
+    height: 2rem;
+    line-height: 2rem;
+}
+
+#options li:hover {
+    background-color: white;
+    cursor: pointer;
 }
 
 

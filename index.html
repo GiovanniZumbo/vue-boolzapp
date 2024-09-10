@@ -146,14 +146,25 @@
                         <div class="chat-group d-flex " v-for="(contact, i) in contacts" v-show="i === activeIndex">
                             <div class="chat-msg d-flex" v-for="(message,j) in contact.messages"
                                 :class=" contact.messages[j].status ">
+
                                 <div id="msg-text">
                                     <p class="msg">{{message.message}}</p>
                                     <p class="date">{{message.date}}</p>
                                 </div>
-                                <select id="msg-menu">
-                                    <option>Message info</option>
-                                    <option>Delete message</option>
-                                </select>
+
+                                <div id="msg-menu">
+                                    <button @click="showMenu()">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+
+                                    <div id="options" v-show="optionMenu === true">
+                                        <ul>
+                                            <li><i class="fa-regular fa-trash-can"></i> <span>Delete message</span></li>
+                                            <li><i class="fa-solid fa-circle-info"></i> <span>Info</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
