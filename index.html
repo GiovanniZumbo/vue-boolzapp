@@ -19,6 +19,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
     <title>BoolzApp</title>
     <!-- JS -->
     <script defer src="script.js"></script>
@@ -84,26 +85,35 @@
 
                         <div v-if="(searchList === '')">
                             <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in contacts"
-                                @click="goToChat(i)">
+                                @click="setActiveIndex(i)">
                                 <div class="chat-profile-pic">
                                     <img :src="contact.avatar" alt=" avatar_1">
                                 </div>
                                 <div class="chat-tab-info">
                                     <p id="name">{{ contact.name }}</p>
+                                    <div id=last-message class="d-flex">
+                                        <p v-text=" contact.messages.slice(-1)[0].message "></p>
+                                        <!-- <time v-text=" contact.messages.slice(-1)[0].date "></time> -->
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div v-else>
-                            <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in filteredContacts"
-                                @click="goToChat(i)">
+                            <div id=" contact-card" class="d-flex align-center" v-for="(contact,i) in filteredContacts"
+                                @click=" setActiveIndex(i)">
                                 <div class="chat-profile-pic">
                                     <img :src="contact.avatar" alt=" avatar_1">
                                 </div>
                                 <div class="chat-tab-info">
                                     <p id="name">{{ contact.name }}</p>
+                                    <div id=last-message class="d-flex">
+                                        <p v-text=" contact.messages.slice(-1)[0].message "></p>
+                                        <!-- <time v-text=" contact.messages.slice(-1)[0].date "></time> -->
+
+                                    </div>
                                 </div>
-                            </div>
 
                     </section>
                 </div>
@@ -121,10 +131,10 @@
                             <div class="chat-profile-pic">
                                 <img :src="contacts[activeIndex].avatar" alt="avatar_1">
                             </div>
+
                             <div class="chat-tab-info">
                                 <p class="name">{{contacts[activeIndex].name}}</p>
-                                <p id="last-seen">Ultimo accesso oggi alle</p>
-
+                                <p id="last-seen">Ultimo accesso oggi alle 13:42 </p>
                             </div>
 
                         </div>
@@ -147,7 +157,13 @@
                             <div class="chat-msg d-flex" v-for="(message,j) in contact.messages"
                                 :class=" contact.messages[j].status ">
 
-                                <div id="msg-text">
+
+                                <div id="msg-text" v-if="deleted === true">
+                                    <i id="deletedmessage">Il messaggio è stato eliminato</i>
+                                </div>
+
+
+                                <div id="msg-text" v-else>
                                     <p class="msg">{{message.message}}</p>
                                     <p class="date">{{message.date}}</p>
                                 </div>
@@ -157,13 +173,17 @@
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </button>
 
+                                    <!--| Options -->
                                     <div id="options" v-show="optionMenu === true">
                                         <ul>
-                                            <li><i class="fa-regular fa-trash-can"></i> <span>Delete message</span></li>
+                                            <li @click="deleteMessage()"><i class="fa-regular fa-trash-can"></i>
+                                                <span>Delete message</span>
+                                            </li>
                                             <li><i class="fa-solid fa-circle-info"></i> <span>Info</span></li>
                                         </ul>
                                     </div>
                                 </div>
+
 
                             </div>
                         </div>
@@ -177,6 +197,7 @@
                             <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage"
                                 @keyup.enter="sendNewMessage(newMessage, activeIndex)">
                         </div>
+                        <i class="fa-solid fa-location-arrow" @click="sendNewMessage(newMessage, activeIndex)"></i>
                         <i class="fa-solid fa-microphone"></i>
 
                     </div>

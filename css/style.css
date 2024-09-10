@@ -48,10 +48,11 @@ main {
 img {
     max-width: 100%;
     display: block;
-    object-fit: cover;
+    border-radius: 50px;
 }
 
 /*? Flex */
+
 .d-flex {
     display: flex;
 }
@@ -114,9 +115,13 @@ img {
 #profile-pic {
     height: 40px;
     width: 40px;
-    border: 1px solid black;
     border-radius: 50px;
     margin-right: 10px;
+
+}
+
+#profile-pic img {
+    overflow: hidden;
 }
 
 
@@ -151,10 +156,11 @@ img {
 /* @ menu-searchbar */
 
 #menu-searchbar {
-    height: 40px;
+    height: 60px;
     width: 100%;
     background-color: var(--light-gray-2);
     padding: 10px 5px;
+    border-bottom: 1px solid var(--bg-gray);
 }
 
 #search-field {
@@ -173,6 +179,10 @@ img {
     border: none;
 }
 
+#search-field input:focus {
+    outline-color: var(--aquagreen);
+}
+
 /* @ menu-contact-list */
 
 #menu-contactlist {
@@ -180,6 +190,13 @@ img {
     background-color: var(--light-gray-2);
     height: calc(100% - 150px);
     overflow-y: scroll;
+}
+
+#last-message {
+    color: gray;
+    font-size: 12px;
+
+    justify-content: space-between;
 }
 
 #contact-card {
@@ -237,7 +254,7 @@ img {
 /* @ chat-main */
 
 #chat-main {
-    height: calc(100% - 100px);
+    height: calc(100% - 80px);
     background-image: url(/img/mine.png);
     overflow-y: scroll;
     position: relative;
@@ -347,12 +364,14 @@ img {
 #chat-footer {
     height: 50px;
     background-color: rgb(242, 237, 233);
+    padding: 0 10px;
 }
 
 #chat-footer i {
     font-size: 20px;
     color: gray;
     margin: 0 20px;
+    cursor: pointer;
 }
 
 #chat-footer input {
@@ -361,4 +380,8 @@ img {
     height: 30px;
     padding: 10px;
 
+}
+
+#chat-footer input:focus {
+    outline-color: var(--aquagreen);
 }

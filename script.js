@@ -7,15 +7,22 @@ createApp({
             activeIndex: 0,
 
             // Testo del nuovo messaggio scritto dall'utente
-            newMessage: ' ',
+            newMessage: '',
 
             //Timer per la risposta automatica
-            autoReplyTimer: ' ',
+            autoReplyTimer: '',
 
             //Array di utenti nella lista di ricerca
             searchList: '',
 
+            //Visibilità menu opzioni
             optionMenu: false,
+
+            //Ultimo messaggio di una chat
+            lastChatMessage: 'Ultimo messaggio',
+
+            //Deleted message flag
+            deleted: false,
 
             // Dati utenti
             contacts: [
@@ -179,6 +186,7 @@ createApp({
 
     computed: {
 
+        //computed per avere la lista filtrata dei contatti
         filteredContacts() {
             console.log(this.filteredContacts);
             return this.contacts.filter((contact) => {
@@ -191,9 +199,10 @@ createApp({
     methods: {
 
         // metodo per cambiare l'indice attivo
-        goToChat(i) {
+        setActiveIndex(i) {
             this.activeIndex = i;
             console.log(this.activeIndex);
+            console.table(this.lastChatMessage)
         },
 
         // metodo per pulire l'input text
@@ -211,6 +220,7 @@ createApp({
                     message: newMessage,
                     status: 'sent'
                 })
+
             this.clearInput();
             this.autoReply(i);
         },
@@ -230,6 +240,10 @@ createApp({
         showMenu() {
             this.optionMenu = !this.optionMenu;
         },
+
+        deleteMessage() {
+            this.deleted = true;
+        }
     },
 
 
