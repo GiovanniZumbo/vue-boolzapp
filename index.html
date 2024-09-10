@@ -144,10 +144,16 @@
                     <div id="chat-main">
 
                         <div class="chat-group d-flex " v-for="(contact, i) in contacts" v-show="i === activeIndex">
-                            <div class="chat-msg" v-for="(message,j) in contact.messages"
+                            <div class="chat-msg d-flex" v-for="(message,j) in contact.messages"
                                 :class=" contact.messages[j].status ">
-                                <p class="msg">{{message.message}}</p>
-                                <p class="date">{{message.date}}</p>
+                                <div id="msg-text">
+                                    <p class="msg">{{message.message}}</p>
+                                    <p class="date">{{message.date}}</p>
+                                </div>
+                                <select id="msg-menu">
+                                    <option>Message info</option>
+                                    <option>Delete message</option>
+                                </select>
                             </div>
                         </div>
 

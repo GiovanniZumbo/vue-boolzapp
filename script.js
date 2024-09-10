@@ -3,11 +3,19 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // Indice attivo
             activeIndex: 0,
+
+            // Testo del nuovo messaggio scritto dall'utente
             newMessage: ' ',
+
+            //Timer per la risposta automatica
             autoReplyTimer: ' ',
+
+            //Array di utenti nella lista di ricerca
             searchList: '',
 
+            // Dati utenti
             contacts: [
                 {
                     name: 'Michele',
@@ -193,9 +201,11 @@ createApp({
 
         // metodo per inviare un nuovo messaggio 
         sendNewMessage(newMessage, i) {
+            if (!this.newMessage) return;
+
             this.contacts[i].messages.push(
                 {
-                    date: '10/01/2020 15:30:55',
+                    date: new Date().toLocaleString(),
                     message: newMessage,
                     status: 'sent'
                 })
@@ -208,7 +218,7 @@ createApp({
             setTimeout(() => {
                 this.contacts[i].messages.push(
                     {
-                        date: '10/01/2020 15:30:55',
+                        date: new Date().toLocaleString(),
                         message: 'Ok',
                         status: 'received'
                     })

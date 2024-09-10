@@ -257,16 +257,7 @@ img {
     padding: 10px;
     margin: 10px 0;
     align-self: flex-end;
-}
-
-#chat-main .chat-msg .hidden {
-    display: none;
-}
-
-
-
-.chat-msg .show {
-    display: inline;
+    box-shadow: 2px 1px 5px grey;
 }
 
 .received {
@@ -276,16 +267,41 @@ img {
     border-radius: 10px;
     padding: 10px;
     margin: 20px 0;
+    box-shadow: 2px 1px 5px grey;
 }
 
-.msg {
+
+/* select menu*/
+#msg-menu {
+    display: none;
+    border: none;
+    flex-basis: 10%;
+    background-color: transparent;
+    text-align: end;
+}
+
+#msg-menu i {
+    cursor: pointer;
+}
+
+.chat-msg:hover #msg-menu {
+    display: inline-block;
+}
+
+
+#msg-text .msg {
     text-align: start;
 }
 
-.date {
+#msg-text .date {
+    text-align: end;
     font-size: 10px;
     color: gray;
     text-align-last: right;
+}
+
+#msg-text {
+    flex-basis: 90%;
 }
 
 
