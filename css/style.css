@@ -182,13 +182,13 @@ img {
     overflow-y: scroll;
 }
 
-#chat-card {
+#contact-card {
     height: 70px;
     width: 100%;
     background: white;
 }
 
-#chat-card:hover {
+#contact-card:hover {
     cursor: pointer;
     background-color: var(--light-gray-1);
 }

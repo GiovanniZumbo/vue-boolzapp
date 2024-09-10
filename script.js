@@ -6,8 +6,7 @@ createApp({
             activeIndex: 0,
             newMessage: ' ',
             autoReplyTimer: ' ',
-            searchText: '',
-            filteredContactsList: [],
+            searchList: '',
 
             contacts: [
                 {
@@ -170,7 +169,12 @@ createApp({
 
     computed: {
 
-
+        filteredContacts() {
+            console.log(this.filteredContacts);
+            return this.contacts.filter((contact) => {
+                return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
+            });
+        }
 
     },
 
@@ -210,14 +214,6 @@ createApp({
                     })
             }, 1000)
         },
-
-        filteredContacts() {
-            console.log(filteredContactsList)
-            return this.filteredContactsList = this.contacts.filter((contact) => {
-                contact.name.includes(this.searchText);
-
-            })
-        },
-
     },
+
 }).mount('#app')

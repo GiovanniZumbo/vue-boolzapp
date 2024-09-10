@@ -75,16 +75,15 @@
                     <section id="menu-searchbar">
                         <div id="search-field">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchText"
-                                @input="filteredContacts()"></input>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchList">
                         </div>
                     </section>
 
                     <!--@ menu-contact-list -->
                     <section id="menu-contactlist">
 
-                        <div v-if="(searchText === '')">
-                            <div id="chat-card" class="d-flex align-center" v-for="(contact,i) in contacts"
+                        <div v-if="(searchList === '')">
+                            <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in contacts"
                                 @click="goToChat(i)">
                                 <div class="chat-profile-pic">
                                     <img :src="contact.avatar" alt=" avatar_1">
@@ -96,7 +95,7 @@
                         </div>
 
                         <div v-else>
-                            <div id="chat-card" class="d-flex align-center" v-for="(contact,i) in filteredContactsList"
+                            <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in filteredContacts"
                                 @click="goToChat(i)">
                                 <div class="chat-profile-pic">
                                     <img :src="contact.avatar" alt=" avatar_1">
