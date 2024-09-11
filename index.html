@@ -19,11 +19,13 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-
     <title>BoolzApp</title>
+
     <!-- JS -->
     <script defer src="script.js"></script>
 </head>
+
+
 
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -83,38 +85,22 @@
                     <!--@ menu-contact-list -->
                     <section id="menu-contactlist">
 
-                        <div v-if="(searchList === '')">
-                            <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in contacts"
-                                @click="setActiveIndex(i)">
-                                <div class="chat-profile-pic">
-                                    <img :src="contact.avatar" alt=" avatar_1">
-                                </div>
-                                <div class="chat-tab-info">
-                                    <p id="name">{{ contact.name }}</p>
-                                    <div id=last-message class="d-flex">
-                                        <p v-text=" contact.messages.slice(-1)[0].message "></p>
-                                        <!-- <time v-text=" contact.messages.slice(-1)[0].date "></time> -->
+                        <div id="contact-card" class="d-flex align-center" v-for="(contact,i) in filteredContacts"
+                            @click="setActiveIndex(i)">
 
-                                    </div>
+                            <div class="chat-profile-pic">
+                                <img :src="contact.avatar" alt=" avatar_1">
+                            </div>
+
+                            <div class="chat-tab-info">
+                                <p id="name">{{ contact.name }}</p>
+                                <div id=last-message class="d-flex">
+                                    <p v-text=" contact.messages.slice(-1)[0].message "></p>
+                                    <!-- <time v-text=" contact.messages.slice(-1)[0].date "></time> -->
                                 </div>
                             </div>
+
                         </div>
-
-                        <div v-else>
-                            <div id=" contact-card" class="d-flex align-center" v-for="(contact,i) in filteredContacts"
-                                @click=" setActiveIndex(i)">
-                                <div class="chat-profile-pic">
-                                    <img :src="contact.avatar" alt=" avatar_1">
-                                </div>
-                                <div class="chat-tab-info">
-                                    <p id="name">{{ contact.name }}</p>
-                                    <div id=last-message class="d-flex">
-                                        <p v-text=" contact.messages.slice(-1)[0].message "></p>
-                                        <!-- <time v-text=" contact.messages.slice(-1)[0].date "></time> -->
-
-                                    </div>
-                                </div>
-
                     </section>
                 </div>
 
@@ -206,6 +192,11 @@
             </div>
         </div>
     </main>
+
+    <!-- Luxon -->
+    <script src="
+    https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js
+    "></script>
 </body>
 
 </html>

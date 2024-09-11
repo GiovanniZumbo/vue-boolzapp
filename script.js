@@ -1,4 +1,5 @@
 const { createApp } = Vue
+const dt = luxon.DateTime;
 
 createApp({
     data() {
@@ -189,7 +190,7 @@ createApp({
         //computed per avere la lista filtrata dei contatti
         filteredContacts() {
             console.log(this.filteredContacts);
-            return this.contacts.filter((contact) => {
+            return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.searchList.toLowerCase());
             });
         },
@@ -216,21 +217,21 @@ createApp({
 
             this.contacts[i].messages.push(
                 {
-                    date: new Date().toLocaleString(),
+                    date: dt.now(),
                     message: newMessage,
                     status: 'sent'
                 })
 
             this.clearInput();
-            this.autoReply(i);
+            this.addAutoReply(i);
         },
 
         // metodo per creare una risposta automatizzata
-        autoReply(i) {
+        addAutoReply(i) {
             setTimeout(() => {
                 this.contacts[i].messages.push(
                     {
-                        date: new Date().toLocaleString(),
+                        date: dt.now(),
                         message: 'Ok',
                         status: 'received'
                     })
